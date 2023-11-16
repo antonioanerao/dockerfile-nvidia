@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nvidia:
+    image: antonioanerao/nvidia:1.0.0
+    container_name: nvidia
+    platform: linux/amd64
+    command: nvidia-smi
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
